@@ -33,7 +33,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ── PAGE LOAD TRANSITION ── */
 body.page-loading {
   opacity: 0;
   filter: blur(6px);
@@ -47,7 +46,6 @@ body {
   will-change: opacity, filter, transform;
 }
 
-/* ── INTERNAL LINK FADE OVERLAY ── */
 #page-veil {
   position: fixed;
   inset: 0;
@@ -251,6 +249,122 @@ nav.scrolled { background: rgba(255,255,255,0.97); border-bottom-color: rgba(0,0
 .vstmt:first-child { border-top: 0.5px solid rgba(0,0,0,0.1); }
 .vstmt.active { opacity: 1; transform: translateX(0); }
 
+/* ── STORY SECTION ── */
+#story {
+  position: relative;
+  height: 400vh;
+  z-index: 2;
+}
+
+.story-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-top: 0.5px solid rgba(0,0,0,0.1);
+  border-bottom: 0.5px solid rgba(0,0,0,0.1);
+}
+
+.story-content {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  padding: 0 80px;
+  text-align: center;
+}
+
+.story-steps {
+  position: relative;
+}
+
+.story-step {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(calc(-50% + 24px));
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.72s var(--ease-out), transform 0.72s var(--ease-out);
+  will-change: opacity, transform;
+}
+
+.story-step.active {
+  opacity: 1;
+  transform: translateY(-50%);
+  pointer-events: auto;
+}
+
+.story-step.exit-up {
+  opacity: 0;
+  transform: translateY(calc(-50% - 24px));
+}
+
+.story-step:first-child {
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+  transform: translateY(24px);
+}
+
+.story-step:first-child.active {
+  transform: translateY(0);
+}
+
+.story-step:first-child.exit-up {
+  transform: translateY(-24px);
+}
+
+.story-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-2);
+  margin-bottom: 24px;
+  opacity: 0.8;
+}
+
+.story-text {
+  font-size: clamp(40px, 7vw, 84px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  color: var(--black);
+  margin: 0;
+}
+
+.story-progress {
+  position: absolute;
+  right: 48px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.sp-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.15);
+  transition: background 0.4s var(--ease), transform 0.4s var(--ease-spring), height 0.4s var(--ease-spring);
+  will-change: transform, background;
+}
+
+.sp-dot.active {
+  background: var(--black);
+  height: 20px;
+  border-radius: 2px;
+  transform: scaleX(1);
+}
+
 #contact { position: relative; z-index: 2; padding: 0 80px 100px; }
 .contact-inner {
   max-width: 1040px; margin: 0 auto;
@@ -327,7 +441,6 @@ footer {
   transition: width 0.1s linear;
 }
 
-/* ── REVEAL — enhanced with stagger depth ── */
 .reveal {
   opacity: 0;
   transform: translateY(28px);
@@ -337,7 +450,6 @@ footer {
 .reveal.visible { opacity: 1; transform: translateY(0); }
 .rd1{transition-delay:.1s} .rd2{transition-delay:.2s} .rd3{transition-delay:.3s} .rd4{transition-delay:.4s}
 
-/* ── ENHANCED SECTION ENTRY ── */
 .section-entry {
   opacity: 0;
   transform: translateY(36px);
@@ -364,7 +476,6 @@ footer {
 }
 .line-reveal.visible .line-reveal-inner { transform: translateY(0); }
 
-/* ── BUTTON TEXT MORPH ── */
 .abtn .btn-text-default,
 .abtn .btn-text-hover {
   display: block;
@@ -403,7 +514,6 @@ footer {
   height: 1.2em;
 }
 
-/* ── INTENT CTA ── */
 .intent-cta-wrap {
   position: relative;
   display: inline-flex;
@@ -449,12 +559,13 @@ footer {
   .cta-btns { flex-direction: column; align-items: center; }
   footer { padding: 20px 24px; flex-direction: column; gap: 12px; text-align: center; }
   .footer-links { justify-content: center; }
+  .story-content { padding: 0 24px; }
+  .story-progress { right: 16px; }
 }
 </style>
 </head>
 <body class="page-loading">
 
-<!-- PAGE VEIL for internal link transitions -->
 <div id="page-veil"></div>
 
 <div class="scroll-progress"><div class="scroll-progress-bar" id="spbar"></div></div>
@@ -567,6 +678,43 @@ footer {
 </section>
 <hr class="rule">
 
+<!-- STORY SECTION -->
+<section id="story" aria-label="Process storytelling">
+  <div class="story-sticky">
+    <div class="story-content">
+      <div class="story-steps" id="storySteps">
+        <div class="story-step active" data-index="0">
+          <p class="story-label">The Process</p>
+          <h2 class="story-text">Content that stops<br>the scroll.</h2>
+        </div>
+        <div class="story-step" data-index="1">
+          <p class="story-label">Attention</p>
+          <h2 class="story-text">Hook in<br>0–3 seconds.</h2>
+        </div>
+        <div class="story-step" data-index="2">
+          <p class="story-label">Craft</p>
+          <h2 class="story-text">Retention is engineered,<br>not guessed.</h2>
+        </div>
+        <div class="story-step" data-index="3">
+          <p class="story-label">Intention</p>
+          <h2 class="story-text">Every frame<br>has a purpose.</h2>
+        </div>
+        <div class="story-step" data-index="4">
+          <p class="story-label">Result</p>
+          <h2 class="story-text">Not content.<br>Growth assets.</h2>
+        </div>
+      </div>
+    </div>
+    <div class="story-progress" id="storyProgress" aria-hidden="true">
+      <div class="sp-dot active" data-index="0"></div>
+      <div class="sp-dot" data-index="1"></div>
+      <div class="sp-dot" data-index="2"></div>
+      <div class="sp-dot" data-index="3"></div>
+      <div class="sp-dot" data-index="4"></div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div style="max-width:1200px;margin:0 auto;padding-top:80px;">
@@ -639,15 +787,12 @@ footer {
 /* ── INTERNAL LINK SMOOTH SCROLL TRANSITION ── */
 (function () {
   const veil = document.getElementById('page-veil');
-
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', function (e) {
       const target = document.querySelector(this.getAttribute('href'));
       if (!target) return;
       e.preventDefault();
-
       veil.classList.add('veil-in');
-
       setTimeout(() => {
         target.scrollIntoView({ behavior: 'instant' });
         requestAnimationFrame(() => {
@@ -735,7 +880,7 @@ document.querySelectorAll('a, button, .svc-card').forEach(el => {
   el.addEventListener('mouseleave', () => cring.classList.remove('hovered'));
 });
 
-/* ── REVEAL ON SCROLL — enhanced ── */
+/* ── REVEAL ON SCROLL ── */
 const ro = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
@@ -911,7 +1056,7 @@ document.head.appendChild(rs);
   resetIdle();
 })();
 
-/* ── MAGNETIC HOVER — Buttons & Service Cards ── */
+/* ── MAGNETIC HOVER ── */
 (function () {
   const STRENGTH_BTN  = 0.32;
   const STRENGTH_CARD = 0.14;
@@ -982,6 +1127,55 @@ document.querySelectorAll('.svc-card').forEach(card => {
     card.style.transform = '';
   });
 });
+
+/* ── STORY SCROLL SECTION ── */
+(function () {
+  const section   = document.getElementById('story');
+  const steps     = Array.from(document.querySelectorAll('.story-step'));
+  const dots      = Array.from(document.querySelectorAll('.sp-dot'));
+  const TOTAL     = steps.length;
+  let   current   = 0;
+  let   rafQueued = false;
+
+  function setStep(idx) {
+    if (idx === current) return;
+    const prev = current;
+    current = idx;
+
+    steps[prev].classList.remove('active');
+    steps[prev].classList.add('exit-up');
+    setTimeout(() => steps[prev].classList.remove('exit-up'), 720);
+
+    steps[current].classList.add('active');
+
+    dots[prev].classList.remove('active');
+    dots[current].classList.add('active');
+  }
+
+  function onScroll() {
+    rafQueued = false;
+    const rect     = section.getBoundingClientRect();
+    const sH       = section.offsetHeight;
+    const vH       = window.innerHeight;
+    const scrolled = -rect.top;
+    const range    = sH - vH;
+    if (range <= 0) return;
+
+    const progress = Math.max(0, Math.min(1, scrolled / range));
+    const idx      = Math.min(TOTAL - 1, Math.floor(progress * TOTAL));
+    setStep(idx);
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!rafQueued) {
+      rafQueued = true;
+      requestAnimationFrame(onScroll);
+    }
+  }, { passive: true });
+
+  steps[0].classList.add('active');
+  dots[0].classList.add('active');
+})();
 </script>
 </body>
 </html>
