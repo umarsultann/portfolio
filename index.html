@@ -348,6 +348,45 @@ footer {
   footer { padding: 20px 24px; flex-direction: column; gap: 12px; text-align: center; }
   .footer-links { justify-content: center; }
 }
+ /* ── BUTTON TEXT MORPH ── */
+.abtn .btn-text-default,
+.abtn .btn-text-hover {
+  display: block;
+  transition: opacity 0.22s var(--ease), transform 0.22s var(--ease);
+  position: absolute;
+  left: 0; right: 0;
+  text-align: center;
+  white-space: nowrap;
+}
+.abtn.has-morph {
+  position: relative;
+  overflow: hidden;
+}
+.abtn.has-morph .btn-text-default {
+  opacity: 1;
+  transform: translateY(0);
+}
+.abtn.has-morph .btn-text-hover {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.abtn.has-morph:hover .btn-text-default {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+.abtn.has-morph:hover .btn-text-hover {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* keep icon + padding spacing intact */
+.abtn.has-morph .btn-morph-inner {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 80px;
+  height: 1.2em;
+}
 </style>
 </head>
 <body>
@@ -657,6 +696,109 @@ rs.textContent = '@keyframes rippleAnim{to{transform:scale(1);opacity:0;}}';
 document.head.appendChild(rs);
  
 /* ── SVC CARD MAGNETIC TILT ── */
+ /* ── BUTTON TEXT MORPH ── */
+(function () {
+  const morphMap = {
+    'WhatsApp Me': "Let's Talk",
+    'WhatsApp':    'Message Me',
+    'Call':        'Ring Ring',
+    'Call Now':    'Call Now →',
+    'Instagram':   'DM Me',
+  };
+
+  document.querySelectorAll('.abtn').forEach(btn => {
+    const svgEl  = btn.querySelector('svg');
+    const rawTxt = btn.textContent.trim();
+    const hoverTxt = morphMap[rawTxt];
+    if (!hoverTxt) return;
+
+    btn.classList.add('has-morph');
+
+    const inner = document.createElement('span');
+    inner.className = 'btn-morph-inner';
+
+    const def = document.createElement('span');
+    def.className = 'btn-text-default';
+    def.textContent = rawTxt;
+
+    const hov = document.createElement('span');
+    hov.className = 'btn-text-hover';
+    hov.textContent = hoverTxt;
+
+    inner.appendChild(def);
+    inner.appendChild(hov);
+
+    btn.innerHTML = '';
+    if (svgEl) btn.appendChild(svgEl);
+    btn.appendChild(inner);
+  });
+})();
+
+/* ── MAGNETIC HOVER — Buttons & Service Cards ── */
+(function () {
+  const STRENGTH_BTN  = 0.32;
+  const STRENGTH_CARD = 0.14;
+  const SCALE_BTN     = 1.03;
+  const SCALE_CARD    = 1.012;
+
+  function attachMagnetic(el, strength, scale) {
+    let animId = null;
+    let tx = 0, ty = 0;
+    let cx = 0, cy = 0;
+
+    function lerp(a, b, t) { return a + (b - a) * t; }
+
+    function tick() {
+      tx = lerp(tx, cx, 0.12);
+      ty = lerp(ty, cy, 0.12);
+      el.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
+      if (Math.abs(tx - cx) > 0.1 || Math.abs(ty - cy) > 0.1) {
+        animId = requestAnimationFrame(tick);
+      }
+    }
+
+    el.addEventListener('mousemove', e => {
+      const r = el.getBoundingClientRect();
+      const dx = e.clientX - (r.left + r.width  / 2);
+      const dy = e.clientY - (r.top  + r.height / 2);
+      cx = dx * strength;
+      cy = dy * strength;
+      cancelAnimationFrame(animId);
+      animId = requestAnimationFrame(tick);
+    }, { passive: true });
+
+    el.addEventListener('mouseleave', () => {
+      cx = 0; cy = 0;
+      const resetTick = () => {
+        tx = lerp(tx, 0, 0.10);
+        ty = lerp(ty, 0, 0.10);
+        el.style.transform = `translate(${tx}px, ${ty}px) scale(1)`;
+        if (Math.abs(tx) > 0.05 || Math.abs(ty) > 0.05) {
+          animId = requestAnimationFrame(resetTick);
+        } else {
+          el.style.transform = '';
+        }
+      };
+      cancelAnimationFrame(animId);
+      animId = requestAnimationFrame(resetTick);
+    }, { passive: true });
+  }
+
+  document.querySelectorAll('.abtn').forEach(el => attachMagnetic(el, STRENGTH_BTN,  SCALE_BTN));
+  document.querySelectorAll('.svc-card').forEach(el => attachMagnetic(el, STRENGTH_CARD, SCALE_CARD));
+})();
+
+/* ── MOBILE HAPTIC FEEDBACK ── */
+(function () {
+  const canVibrate = typeof navigator !== 'undefined' && typeof navigator.vibrate === 'function';
+  if (!canVibrate) return;
+
+  document.querySelectorAll('.abtn').forEach(btn => {
+    btn.addEventListener('pointerdown', () => {
+      try { navigator.vibrate(10); } catch (_) {}
+    }, { passive: true });
+  });
+})();
 document.querySelectorAll('.svc-card').forEach(card => {
   card.addEventListener('mousemove', e => {
     const rect = card.getBoundingClientRect();
