@@ -33,14 +33,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
  
-/* SPOTLIGHT */
 #spotlight-canvas {
   position: fixed;
   inset: 0; width: 100%; height: 100%;
   z-index: 0; pointer-events: none;
 }
  
-/* NAV */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0; z-index: 100;
@@ -78,7 +76,6 @@ nav.scrolled { background: rgba(255,255,255,0.97); border-bottom-color: rgba(0,0
 .nav-cta { color: var(--blue) !important; font-weight: 500 !important; }
 .nav-cta:hover { color: #006fa8 !important; }
  
-/* HERO */
 #hero {
   position: relative; z-index: 2;
   min-height: 100vh;
@@ -131,7 +128,6 @@ nav.scrolled { background: rgba(255,255,255,0.97); border-bottom-color: rgba(0,0
   opacity: 0; animation: fadeUp 0.7s var(--ease) 0.9s forwards;
 }
  
-/* BUTTONS */
 .abtn {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 12px 22px; border-radius: 980px;
@@ -164,7 +160,6 @@ nav.scrolled { background: rgba(255,255,255,0.97); border-bottom-color: rgba(0,0
  
 .rule { position: relative; z-index: 2; border: none; border-top: 0.5px solid rgba(0,0,0,0.1); margin: 0; }
  
-/* MARQUEE */
 .marquee-wrap {
   position: relative; z-index: 2;
   border-top: 0.5px solid rgba(0,0,0,0.1);
@@ -183,13 +178,11 @@ nav.scrolled { background: rgba(255,255,255,0.97); border-bottom-color: rgba(0,0
 .mi-sep { color: var(--gray-3); font-size: 14px; }
 @keyframes marquee { 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
  
-/* SECTIONS */
 .section { position: relative; z-index: 2; padding: 120px 80px; max-width: 1200px; margin: 0 auto; }
 .sec-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-2); margin-bottom: 40px; }
 .sec-h2 { font-size: clamp(28px, 3.5vw, 44px); font-weight: 700; letter-spacing: -0.035em; line-height: 1.08; color: var(--black); }
 .sec-h2 .muted { color: var(--gray-2); }
  
-/* SERVICES */
 .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 80px; align-items: start; }
 .services-left { position: sticky; top: 100px; }
 .services-sub { margin-top: 18px; font-size: 16px; font-weight: 300; line-height: 1.7; color: var(--gray-1); max-width: 280px; letter-spacing: -0.01em; }
@@ -214,7 +207,6 @@ nav.scrolled { background: rgba(255,255,255,0.97); border-bottom-color: rgba(0,0
 .svc-name { font-size: 20px; font-weight: 600; letter-spacing: -0.025em; color: var(--black); margin-bottom: 10px; }
 .svc-desc { font-size: 14px; font-weight: 400; line-height: 1.68; color: var(--gray-1); max-width: 340px; }
  
-/* VALUE */
 #value { position: relative; z-index: 2; padding: 100px 80px; background: var(--white); }
 .value-inner { max-width: 800px; margin: 0 auto; }
 .vstmt-list { list-style: none; }
@@ -229,7 +221,6 @@ nav.scrolled { background: rgba(255,255,255,0.97); border-bottom-color: rgba(0,0
 .vstmt:first-child { border-top: 0.5px solid rgba(0,0,0,0.1); }
 .vstmt.active { opacity: 1; transform: translateX(0); }
  
-/* CONTACT */
 #contact { position: relative; z-index: 2; padding: 0 80px 100px; }
 .contact-inner {
   max-width: 1040px; margin: 0 auto;
@@ -244,14 +235,12 @@ nav.scrolled { background: rgba(255,255,255,0.97); border-bottom-color: rgba(0,0
 .contact-h3 { font-size: 32px; font-weight: 700; letter-spacing: -0.035em; line-height: 1.15; color: var(--black); }
 .contact-btns { display: flex; gap: 10px; flex-wrap: wrap; }
  
-/* CTA */
 #cta { position: relative; z-index: 2; padding: 100px 80px; text-align: center; max-width: 1200px; margin: 0 auto; }
 .cta-kicker { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-2); margin-bottom: 24px; }
 .cta-h2 { font-size: clamp(36px, 6vw, 72px); font-weight: 700; letter-spacing: -0.04em; line-height: 1.05; color: var(--black); margin-bottom: 20px; }
 .cta-sub { font-size: 17px; font-weight: 300; color: var(--gray-1); line-height: 1.6; margin-bottom: 48px; letter-spacing: -0.01em; }
 .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
  
-/* CURSOR TRAIL */
 .cursor-dot {
   position: fixed;
   width: 8px; height: 8px;
@@ -274,7 +263,6 @@ nav.scrolled { background: rgba(255,255,255,0.97); border-bottom-color: rgba(0,0
 }
 .cursor-ring.hovered { width: 56px; height: 56px; border-color: rgba(0,0,0,0.25); }
  
-/* FOOTER */
 footer {
   position: relative; z-index: 2;
   border-top: 0.5px solid rgba(0,0,0,0.1);
@@ -299,7 +287,6 @@ footer {
 .footer-copy { font-size: 12px; color: var(--gray-2); }
 .icon { display: inline-block; vertical-align: middle; flex-shrink: 0; }
  
-/* SCROLL PROGRESS */
 .scroll-progress {
   position: fixed; top: 0; left: 0; right: 0; height: 2px;
   background: rgba(0,0,0,0.06); z-index: 200;
@@ -310,12 +297,10 @@ footer {
   transition: width 0.1s linear;
 }
  
-/* REVEAL */
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out); }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 .rd1{transition-delay:.1s} .rd2{transition-delay:.2s} .rd3{transition-delay:.3s} .rd4{transition-delay:.4s}
  
-/* STAGGER FADE */
 .stagger-child {
   opacity: 0; transform: translateY(16px);
   transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
@@ -324,31 +309,14 @@ footer {
  
 @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
  
-/* HORIZONTAL REVEAL for count-up numbers */
 .line-reveal { overflow: hidden; }
 .line-reveal-inner {
   display: block; transform: translateY(100%);
   transition: transform 1s var(--ease-out);
 }
 .line-reveal.visible .line-reveal-inner { transform: translateY(0); }
- 
-@media (max-width: 768px) {
-  nav { padding: 0 20px; }
-  .nav-links { display: none; }
-  .cursor-dot, .cursor-ring { display: none; }
-  #hero { padding: 100px 24px 80px; }
-  .hero-meta { display: none; }
-  .section, #value, #contact { padding: 70px 24px; }
-  #contact { padding: 0 24px 80px; }
-  .contact-inner { flex-direction: column; align-items: flex-start; padding: 32px 28px; }
-  .services-grid { grid-template-columns: 1fr; gap: 48px; }
-  .services-left { position: static; }
-  #cta { padding: 80px 24px; }
-  .cta-btns { flex-direction: column; align-items: center; }
-  footer { padding: 20px 24px; flex-direction: column; gap: 12px; text-align: center; }
-  .footer-links { justify-content: center; }
-}
- /* ── BUTTON TEXT MORPH ── */
+
+/* ── BUTTON TEXT MORPH ── */
 .abtn .btn-text-default,
 .abtn .btn-text-hover {
   display: block;
@@ -378,7 +346,6 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
-/* keep icon + padding spacing intact */
 .abtn.has-morph .btn-morph-inner {
   position: relative;
   display: inline-flex;
@@ -387,18 +354,63 @@ footer {
   min-width: 80px;
   height: 1.2em;
 }
+
+/* ── INTENT CTA ── */
+.intent-cta-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.intent-cta-wrap .cta-state {
+  display: block;
+  position: absolute;
+  left: 0; right: 0;
+  text-align: center;
+  transition: opacity 0.38s var(--ease), transform 0.38s var(--ease);
+  pointer-events: none;
+  white-space: nowrap;
+}
+.intent-cta-wrap .cta-state.active {
+  opacity: 1;
+  transform: translateY(0);
+  position: relative;
+  pointer-events: auto;
+}
+.intent-cta-wrap .cta-state.exit-up {
+  opacity: 0;
+  transform: translateY(-7px);
+}
+.intent-cta-wrap .cta-state.enter-down {
+  opacity: 0;
+  transform: translateY(7px);
+}
+
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .cursor-dot, .cursor-ring { display: none; }
+  #hero { padding: 100px 24px 80px; }
+  .hero-meta { display: none; }
+  .section, #value, #contact { padding: 70px 24px; }
+  #contact { padding: 0 24px 80px; }
+  .contact-inner { flex-direction: column; align-items: flex-start; padding: 32px 28px; }
+  .services-grid { grid-template-columns: 1fr; gap: 48px; }
+  .services-left { position: static; }
+  #cta { padding: 80px 24px; }
+  .cta-btns { flex-direction: column; align-items: center; }
+  footer { padding: 20px 24px; flex-direction: column; gap: 12px; text-align: center; }
+  .footer-links { justify-content: center; }
+}
 </style>
 </head>
 <body>
- 
+
 <div class="scroll-progress"><div class="scroll-progress-bar" id="spbar"></div></div>
- 
 <canvas id="spotlight-canvas" aria-hidden="true"></canvas>
- 
-<!-- CURSOR -->
 <div class="cursor-dot" id="cdot"></div>
 <div class="cursor-ring" id="cring"></div>
- 
+
 <!-- NAV -->
 <nav id="nav">
   <a href="#" class="nav-logo">Umar Sultan</a>
@@ -408,7 +420,7 @@ footer {
     <li><a href="https://wa.me/919648817566?text=Hi%20Umar%2C%20I%20wanna%20work%20with%20you" target="_blank" class="nav-cta">WhatsApp</a></li>
   </ul>
 </nav>
- 
+
 <!-- HERO -->
 <section id="hero">
   <div class="hero-label">
@@ -421,7 +433,6 @@ footer {
   <p class="hero-sub">Cinematic reels. Clean storytelling. Built for attention.</p>
   <div class="hero-actions">
     <a href="https://wa.me/919648817566?text=Hi%20Umar%2C%20I%20wanna%20work%20with%20you" target="_blank" class="abtn abtn-primary">
-      <!-- WhatsApp icon stays white on dark bg — correct -->
       <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M20.52 3.48A11.93 11.93 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.16 1.6 5.97L0 24l6.19-1.62A11.94 11.94 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.22-3.48-8.52zm-8.52 18.45a9.9 9.9 0 0 1-5.05-1.38l-.36-.22-3.74.98 1-3.65-.24-.38A9.9 9.9 0 0 1 2.1 12c0-5.46 4.44-9.9 9.9-9.9 2.64 0 5.12 1.03 6.99 2.9A9.85 9.85 0 0 1 21.9 12c0 5.46-4.44 9.93-9.9 9.93zm5.43-7.42c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51H7.9c-.17 0-.45.07-.69.35-.24.27-.9.88-.9 2.14 0 1.26.92 2.48 1.05 2.65.13.17 1.8 2.75 4.37 3.86.61.26 1.09.42 1.46.54.61.19 1.17.16 1.61.1.49-.07 1.51-.62 1.72-1.22.21-.6.21-1.11.15-1.22-.06-.1-.24-.17-.54-.32z"/></svg>
       WhatsApp Me
     </a>
@@ -430,14 +441,13 @@ footer {
       Call
     </a>
     <a href="https://ig.me/m/umarsul7an" target="_blank" class="abtn abtn-secondary">
-      <!-- Instagram icon: black stroke on secondary (white) button -->
       <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="#000000" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="#000000" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="#000000"/></svg>
       Instagram
     </a>
   </div>
   <span class="hero-meta">Varanasi, India</span>
 </section>
- 
+
 <!-- MARQUEE -->
 <div class="marquee-wrap" aria-hidden="true">
   <div class="marquee-track">
@@ -457,7 +467,7 @@ footer {
     <span class="mi">Motion &amp; Edit <span class="mi-sep">/</span></span>
   </div>
 </div>
- 
+
 <!-- SERVICES -->
 <section id="services" class="section">
   <div class="services-grid">
@@ -490,7 +500,7 @@ footer {
     </div>
   </div>
 </section>
- 
+
 <!-- VALUE -->
 <hr class="rule">
 <section id="value">
@@ -505,7 +515,7 @@ footer {
   </div>
 </section>
 <hr class="rule">
- 
+
 <!-- CONTACT -->
 <section id="contact">
   <div style="max-width:1200px;margin:0 auto;padding-top:80px;">
@@ -516,7 +526,6 @@ footer {
       </div>
       <div class="contact-btns">
         <a href="https://ig.me/m/umarsul7an" target="_blank" class="abtn abtn-secondary">
-          <!-- Instagram icon: black -->
           <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="#000000" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="#000000" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="#000000"/></svg>
           @umarsul7an
         </a>
@@ -536,7 +545,7 @@ footer {
     </div>
   </div>
 </section>
- 
+
 <!-- CTA -->
 <section id="cta">
   <p class="cta-kicker reveal">Ready?</p>
@@ -553,7 +562,7 @@ footer {
     </a>
   </div>
 </section>
- 
+
 <!-- FOOTER -->
 <footer>
   <span class="footer-name">Umar Sultan</span>
@@ -564,7 +573,7 @@ footer {
   </div>
   <span class="footer-copy">2026 &nbsp;·&nbsp; Visual Content Creator &nbsp;·&nbsp; Varanasi, India</span>
 </footer>
- 
+
 <script>
 /* ── WARM SPOTLIGHT ── */
 (function () {
@@ -610,20 +619,20 @@ footer {
   }
   requestAnimationFrame(loop);
 })();
- 
+
 /* ── SCROLL PROGRESS ── */
 window.addEventListener('scroll', () => {
   const el = document.documentElement;
   const pct = (el.scrollTop / (el.scrollHeight - el.clientHeight)) * 100;
   document.getElementById('spbar').style.width = pct + '%';
 }, { passive: true });
- 
+
 /* ── NAV SCROLL ── */
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 40);
 }, { passive: true });
- 
+
 /* ── CUSTOM CURSOR ── */
 const cdot = document.getElementById('cdot');
 const cring = document.getElementById('cring');
@@ -642,24 +651,23 @@ document.querySelectorAll('a, button, .svc-card').forEach(el => {
   el.addEventListener('mouseenter', () => cring.classList.add('hovered'));
   el.addEventListener('mouseleave', () => cring.classList.remove('hovered'));
 });
- 
+
 /* ── REVEAL ON SCROLL ── */
 const ro = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 document.querySelectorAll('.reveal, .line-reveal').forEach(el => ro.observe(el));
- 
+
 /* ── VALUE STATEMENTS ── */
 const vo = new IntersectionObserver(entries => {
   entries.forEach(e => e.target.classList.toggle('active', e.isIntersecting));
 }, { threshold: 0.6 });
 document.querySelectorAll('[data-value]').forEach(el => vo.observe(el));
- 
-/* ── HERO PARALLAX (smooth, rAF-based) ── */
+
+/* ── HERO PARALLAX ── */
 const heroH = document.querySelector('.hero-headline');
 const heroS = document.querySelector('.hero-sub');
 const heroL = document.querySelector('.hero-label');
-let lastY = 0;
 function onScroll() {
   const y = window.scrollY;
   if (y < window.innerHeight * 1.2) {
@@ -672,7 +680,7 @@ let ticking = false;
 window.addEventListener('scroll', () => {
   if (!ticking) { requestAnimationFrame(() => { onScroll(); ticking = false; }); ticking = true; }
 }, { passive: true });
- 
+
 /* ── BUTTON RIPPLE ── */
 document.querySelectorAll('.abtn').forEach(btn => {
   btn.addEventListener('click', function(e) {
@@ -694,9 +702,8 @@ document.querySelectorAll('.abtn').forEach(btn => {
 const rs = document.createElement('style');
 rs.textContent = '@keyframes rippleAnim{to{transform:scale(1);opacity:0;}}';
 document.head.appendChild(rs);
- 
-/* ── SVC CARD MAGNETIC TILT ── */
- /* ── BUTTON TEXT MORPH ── */
+
+/* ── BUTTON TEXT MORPH ── */
 (function () {
   const morphMap = {
     'WhatsApp Me': "Let's Talk",
@@ -705,33 +712,115 @@ document.head.appendChild(rs);
     'Call Now':    'Call Now →',
     'Instagram':   'DM Me',
   };
-
   document.querySelectorAll('.abtn').forEach(btn => {
     const svgEl  = btn.querySelector('svg');
     const rawTxt = btn.textContent.trim();
     const hoverTxt = morphMap[rawTxt];
     if (!hoverTxt) return;
-
     btn.classList.add('has-morph');
-
     const inner = document.createElement('span');
     inner.className = 'btn-morph-inner';
-
     const def = document.createElement('span');
     def.className = 'btn-text-default';
     def.textContent = rawTxt;
-
     const hov = document.createElement('span');
     hov.className = 'btn-text-hover';
     hov.textContent = hoverTxt;
-
     inner.appendChild(def);
     inner.appendChild(hov);
-
     btn.innerHTML = '';
     if (svgEl) btn.appendChild(svgEl);
     btn.appendChild(inner);
   });
+})();
+
+/* ── INTENT-BASED CTA ── */
+(function () {
+  const STATES = [
+    { id: 'default', text: 'WhatsApp Me' },
+    { id: 'idle',    text: 'Still Thinking?' },
+    { id: 'time',    text: "Let's Work Together" },
+    { id: 'scroll',  text: 'Get Your First Reel' },
+  ];
+  const priority = { scroll: 3, time: 2, idle: 1, default: 0 };
+  let currentState  = 'default';
+  let activeSignals = new Set(['default']);
+  const ctaBtns = Array.from(
+    document.querySelectorAll('#hero .abtn-primary, #cta .abtn-primary')
+  );
+  function buildMorph(btn) {
+    const svgEl = btn.querySelector('svg');
+    const wrap  = document.createElement('span');
+    wrap.className = 'intent-cta-wrap';
+    STATES.forEach(s => {
+      const span = document.createElement('span');
+      span.className = 'cta-state' + (s.id === 'default' ? ' active' : ' enter-down');
+      span.dataset.stateId = s.id;
+      span.textContent = s.text;
+      wrap.appendChild(span);
+    });
+    btn.innerHTML = '';
+    if (svgEl) btn.appendChild(svgEl);
+    btn.appendChild(wrap);
+    btn._intentWrap = wrap;
+  }
+  ctaBtns.forEach(buildMorph);
+  function resolveState() {
+    let best = 'default';
+    activeSignals.forEach(sig => {
+      if (priority[sig] > priority[best]) best = sig;
+    });
+    if (best === currentState) return;
+    currentState = best;
+    ctaBtns.forEach(btn => transitionTo(btn, best));
+  }
+  function transitionTo(btn, targetId) {
+    const wrap    = btn._intentWrap;
+    if (!wrap) return;
+    const current = wrap.querySelector('.cta-state.active');
+    const next    = wrap.querySelector(`[data-state-id="${targetId}"]`);
+    if (!current || !next || current === next) return;
+    current.classList.remove('active');
+    current.classList.add('exit-up');
+    next.classList.remove('enter-down');
+    next.classList.add('active');
+    setTimeout(() => {
+      current.classList.remove('exit-up');
+      current.classList.add('enter-down');
+    }, 420);
+  }
+  let scrollSignaled = false;
+  const scrollHandler = () => {
+    const el  = document.documentElement;
+    const pct = el.scrollTop / (el.scrollHeight - el.clientHeight);
+    if (!scrollSignaled && pct >= 0.5) {
+      scrollSignaled = true;
+      activeSignals.add('scroll');
+      resolveState();
+      window.removeEventListener('scroll', scrollHandler);
+    }
+  };
+  window.addEventListener('scroll', scrollHandler, { passive: true });
+  setTimeout(() => {
+    activeSignals.add('time');
+    resolveState();
+  }, 10000);
+  let idleTimer = null;
+  function resetIdle() {
+    clearTimeout(idleTimer);
+    if (activeSignals.has('idle')) {
+      activeSignals.delete('idle');
+      resolveState();
+    }
+    idleTimer = setTimeout(() => {
+      activeSignals.add('idle');
+      resolveState();
+    }, 6000);
+  }
+  ['mousemove', 'touchstart', 'keydown', 'scroll'].forEach(ev =>
+    window.addEventListener(ev, resetIdle, { passive: true })
+  );
+  resetIdle();
 })();
 
 /* ── MAGNETIC HOVER — Buttons & Service Cards ── */
@@ -740,35 +829,30 @@ document.head.appendChild(rs);
   const STRENGTH_CARD = 0.14;
   const SCALE_BTN     = 1.03;
   const SCALE_CARD    = 1.012;
-
   function attachMagnetic(el, strength, scale) {
     let animId = null;
     let tx = 0, ty = 0;
-    let cx = 0, cy = 0;
-
+    let mx = 0, my = 0;
     function lerp(a, b, t) { return a + (b - a) * t; }
-
     function tick() {
-      tx = lerp(tx, cx, 0.12);
-      ty = lerp(ty, cy, 0.12);
+      tx = lerp(tx, mx, 0.12);
+      ty = lerp(ty, my, 0.12);
       el.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
-      if (Math.abs(tx - cx) > 0.1 || Math.abs(ty - cy) > 0.1) {
+      if (Math.abs(tx - mx) > 0.1 || Math.abs(ty - my) > 0.1) {
         animId = requestAnimationFrame(tick);
       }
     }
-
     el.addEventListener('mousemove', e => {
       const r = el.getBoundingClientRect();
       const dx = e.clientX - (r.left + r.width  / 2);
       const dy = e.clientY - (r.top  + r.height / 2);
-      cx = dx * strength;
-      cy = dy * strength;
+      mx = dx * strength;
+      my = dy * strength;
       cancelAnimationFrame(animId);
       animId = requestAnimationFrame(tick);
     }, { passive: true });
-
     el.addEventListener('mouseleave', () => {
-      cx = 0; cy = 0;
+      mx = 0; my = 0;
       const resetTick = () => {
         tx = lerp(tx, 0, 0.10);
         ty = lerp(ty, 0, 0.10);
@@ -783,8 +867,7 @@ document.head.appendChild(rs);
       animId = requestAnimationFrame(resetTick);
     }, { passive: true });
   }
-
-  document.querySelectorAll('.abtn').forEach(el => attachMagnetic(el, STRENGTH_BTN,  SCALE_BTN));
+  document.querySelectorAll('.abtn').forEach(el => attachMagnetic(el, STRENGTH_BTN, SCALE_BTN));
   document.querySelectorAll('.svc-card').forEach(el => attachMagnetic(el, STRENGTH_CARD, SCALE_CARD));
 })();
 
@@ -792,13 +875,14 @@ document.head.appendChild(rs);
 (function () {
   const canVibrate = typeof navigator !== 'undefined' && typeof navigator.vibrate === 'function';
   if (!canVibrate) return;
-
   document.querySelectorAll('.abtn').forEach(btn => {
     btn.addEventListener('pointerdown', () => {
       try { navigator.vibrate(10); } catch (_) {}
     }, { passive: true });
   });
 })();
+
+/* ── SVC CARD MAGNETIC TILT ── */
 document.querySelectorAll('.svc-card').forEach(card => {
   card.addEventListener('mousemove', e => {
     const rect = card.getBoundingClientRect();
@@ -813,4 +897,3 @@ document.querySelectorAll('.svc-card').forEach(card => {
 </script>
 </body>
 </html>
- 
